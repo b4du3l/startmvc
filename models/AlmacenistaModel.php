@@ -15,5 +15,17 @@ class AlmacenistaModel extends ModelBase
 		$consulta->execute(array($empresa));
 		return $consulta->fetchAll();
 	}
+	function guardarFamilia($nombreFamilia,$idEmpresa)	
+	{			
+		$consulta=$this->db->prepare("insert into familia set NombreFamilia=?,Cod_Empresa=?");
+		$consulta->execute(array($nombreFamilia,$idEmpresa));
+		if ($consulta->rowCount()>0)
+		{
+			return true;
+		}
+		else 
+		return false;
+	}
+	
 }
 ?>

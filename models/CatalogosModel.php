@@ -15,13 +15,13 @@ class CatalogosModel extends ModelBase
 	}
 	function getFamilias($idEmpresa)
 	{
-		$consulta=$this->db->prepare("SELECT * FROM `familia` where Cod_Empresa=?");
+		$consulta=$this->db->prepare("SELECT * FROM `familia` where Cod_Empresa=? order by NombreFamilia");
 		$consulta->execute(array($idEmpresa));
 		return $consulta->fetchAll();
 	}
 	function getMarcas($idEmpresa)
 	{
-		$consulta=$this->db->prepare("SELECT * FROM `marca` where Cod_Empresa=?");
+		$consulta=$this->db->prepare("SELECT * FROM `marca` where Cod_Empresa=? order by NombreMarca");
 		$consulta->execute(array($idEmpresa));
 		return $consulta->fetchAll();
 	}

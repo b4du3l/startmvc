@@ -98,6 +98,35 @@ print_r($datosMercancia);
 	{
 		
 	}
+	function guardarFamilia()
+	{
+		$nombreFamilia = $_POST[nombreFamilia];
+		$idEmpresa=1;
+		$response = array("error"=>0,"msg"=>"","data"=>array());
+		if(strlen(trim($nombreFamilia))!=0)
+		{
+			require_once "models/AlmacenistaModel.php";
+			$almacenista = new AlmacenistaModel();
+			if($almacenista->guardarFamilia($nombreFamilia,$idEmpresa))
+			{
+				require_once "models/CatalogosModel.php";
+				$catalogo = new CatalogosModel();
+				$response[msg]="se ha registrado la familia";
+				$response[data]=$catalogo->getFamilias(1);				
+			}
+			else 
+			{
+				$response[error]=-1;
+				$response[msg]="ohhh esto es embarazoso no se pudo hacer nada";
+			}
+		}
+		else {
+				$response[error]=-1;
+				$response[msg]="ohhh esto es embarazoso no se pudo hacer nada";
+		}
+		
+		echo json_encode($response);
+	}
 }
 
  

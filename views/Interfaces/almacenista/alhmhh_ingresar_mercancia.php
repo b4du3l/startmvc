@@ -35,7 +35,7 @@
                                     <div class="form-group datos_nueva_sucursal">
                                         <label for="ci">Nombre de la familia:</label>
                                         <br>
-                                        <select name="familia" class="form-control" id="ci" style="width:195px;">
+                                        <select name="familia" class="form-control" id="familia" style="width:195px;">
                                             <option value="0">-- Seleccionar --</option>
                                             <?php
                                             if($familias)
@@ -53,6 +53,11 @@
                                 </section>
                                 <br>
                                 <section class="col-xs-6 col-sm-6 col-md-6"> 
+                                <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Crear nueva familia
+</button>
+<!--
                                     <a href="alhmnn_ingresar_mercancia_nueva_familia.php">
                                         <div class="col-xs-3 col-sm-3 col-md-3">
                                             <img style="width:110%;" src="img/al_agregar_familia.png">
@@ -63,6 +68,7 @@
                                             <label>Crear nueva familia</label>
                                         </div>
                                     </a>
+                                    -->
                                 </section>
                             </section><article style="height:200px; float:none; clear:both;"></article> <!-- solo para dar espacio -->
 
@@ -78,7 +84,35 @@
     </div>    
     </div>
 
-<?php include ('views/comun/aayyhh_footer.php'); ?>    
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Registrar Nueva Familia</h4>
+      </div>
+      <div class="modal-body">
+      <form id="myform">
+      <label>Nombre de la Familia</label>
+      	<input type="text" name="nombreFamilia" id="nombreFamilia" value="">
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="save-button">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php
+ //include ('views/comun/aayyhh_footer.php'); 
+ footer(__FILE__);
+ ?>    
+
+
 
 
 

@@ -128,14 +128,32 @@ function headFocus()
 <body onload="bill.codPr.focus()" class="fondo-azul">
 <?php	
 }
-function footer()
-{
+function footer($path=null)
+{ 
 	?>
 	<script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+	<?php
+	if($path)
+	{		
+		addOwnJs($path);
+	}
+	?>
 </body>
 </html>
 <?php	
+}
+function addOwnJs($path)
+{	
+ $directorio = getcwd()."\\js\\";
+ $partes  =explode(".",basename($path)) ;
+ $archivo = $partes[0].".js";
+ $ruta = "$directorio".$archivo;
+ if(file_exists($ruta))
+ {
+ 	?><script type="text/javascript" src="js/<?=$archivo?>"></script>
+ 	
+ 	<?php
+ }
 }
 ?>
