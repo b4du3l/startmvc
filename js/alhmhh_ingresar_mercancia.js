@@ -11,7 +11,7 @@ else
 {
 $.ajax({
   method:"post",
-  url: "http://localhost/startmvc/?controlador=Almacenista&accion=guardarFamilia",
+  url: "?controlador=Almacenista&accion=guardarFamilia",
   data:{
   	nombreFamilia:$("#nombreFamilia").val()
   },
